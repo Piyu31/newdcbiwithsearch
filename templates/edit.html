@@ -1,0 +1,107 @@
+{% extends "index.html" %}
+{% block editTemp %}
+<section id="section1" class="bg bg-lighta">
+    <div class="">
+        <div class="sec_title">
+            <h6>UPDATE DATA TO DB</h6>
+        </div>
+    </div>
+    {% for d in dcbasicinfolist %}
+    <form class="form-horizontal col-xs-12 col-lg-12 col-md-12 col-sm-12 mt-2" method="POST" action="{{url_for('update_dcbasicinfo_records')}}"name="wform" >
+       <fieldset  class="row sec1 mt-8 ml-1">
+         <legend >DC Basic Information</legend>
+              <!--
+              <label for="id" class="text-light bg bg-dark">ID</label>-->
+           
+          <div class="form-group col-4">
+              <input type="hidden" class="form-control bg bg-light" id="id" placeholder="Id" value="{{d['_id']}}" name="id" >
+           </div>
+           
+        
+        <div class="row sec1 mb-4">
+         <div class="form-group col-lg-4 col-md-6 col-sm-12">
+            <!--<label for="Dc#" class="text-light bg bg-info">DC#</label>-->
+            <input type="number" class="form-control mb-1" id="dcnumdcname" placeholder="Enter Dc number" value="{{d['Dc_number']}}" name="dcnum" required>
+         </div>
+          <div class="form-group col-4">
+            <!--<label for="Dc Name" class="text-light bg bg-info">DC Name </label>-->
+            <input type="text" class="form-control mb-1" id="dcname" placeholder="Enter Dc Name" value="{{d['Dc_name']}}" name="dcname" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="Dc Address" class="text-light bg bg-info">DC Address </label>-->
+            <input type="text" class="form-control mb-1"  mb-1="dcaddr" placeholder="Enter Address" value="{{d['Dc_address']}}" name="dcaddr" required>
+         </div>
+         <div class="form-group col-4">
+            <!--<label for="Dc city" class="text-light bg bg-info">DC City </label>-->
+            <input type="text" class="form-control mb-1" id="dccity" placeholder="Enter City" value="{{d['Dc_city']}}" name="dccity" required>
+         </div>
+         <div class="form-group col-4">
+            <!--<label for="DC State" class="text-light bg bg-info">DC State</label>-->
+            <input type="text" class="form-control mb-1" id="dcstate" placeholder="Enter State" value="{{d['Dc_state']}}" name="dcstate" required>
+         </div>
+         <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="DC Code" class="text-light bg bg-info">DC Code</label>-->
+            <input type="text" class="form-control mb-1" id="dczip" placeholder="Enter Zip Code" value="{{d['Dc_zip']}}" name="dczip" required>        
+         </div>
+           <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="DC Country" class="text-light bg bg-info">DC Cntry</label>-->
+            <input type="text" class="form-control mb-1" id="dccountry" placeholder="Enter Country Name" value="{{d['Dc_country']}}" name="dccountry" required>      
+         </div>
+         <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="DC Phone-number" class="text-light bg bg-info">DC Phnbrr</label>-->
+            <input type="tel" class="form-control mb-1" id="dcphone" placeholder="Enter Phone-number"  value="{{d['Dc_phone']}}" name="dcphone" required>
+         </div>
+          <div class="form-group col-4">
+            <!--<label for="DC Email" class="text-light bg bg-info">DC Email</label>-->
+            <input type="email" class="form-control mb-1" id="dcemail" placeholder="Enter Email"  value="{{d['Dc_email']}}" name="dcemail" required>
+         </div>
+        </fieldset>
+
+         <fieldset  class="row sec1">
+                   <legend  class="ml-3">Amarr District Manager</legend> 
+        <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="ADMFirst Name" class="text-light bg bg-info">F Name</label>-->
+            <input type="text" class="form-control mb-1" id="admfirstname" placeholder="e.g.John" value="{{d['AmarrDistMgrFirstname']}}" name="admfirstname" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="ADMLast Name" class="text-light bg bg-info">L Name</label>-->
+            <input type="text" class="form-control mb-1" id="admlastname" placeholder="e.g.Smith" value="{{d['AmarrDistMgrLastname']}}" name="admlastname" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="ADMMobile Number" class="text-light bg bg-info">Mobile </label>-->
+            <input type="tel" class="form-control mb-1" id="admphone" placeholder="e.g.999-888-7676" value="{{d['AmarrDistMgrPhone']}}" name="admphone" required>
+         </div>
+      
+     <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="ADMEmail" class="text-light bg bg-info">Email</label>-->
+            <input type="email" class="form-control mb-1" id="admemail" placeholder="e.g.johnS@gmail.com" value="{{d['AmarrDistMgrEmail']}}" name="admemail" required>
+         </div>
+   
+      </fieldset>
+
+      <fieldset  class="row sec1 mt-2">
+                   <legend  class="ml-3 ">Sales Manager</legend>  
+       <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="SMFirst Name" class="text-light bg bg-info">F Name</label>-->
+            <input type="text" class="form-control mb-1" id="smfirstname" placeholder="e.g.Elsa" value="{{d['SmFirstname']}}" name="smfirstname" required>
+         </div>
+          <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="SMLast Name" class="text-light bg bg-info">L Name</label>-->
+            <input type="text" class="form-control mb-1" id="smlastname" placeholder="e.g.Danes" value="{{d['SmLastname']}}" name="smlastname" required>
+         </div>
+       <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="SMMobile Number" class="text-light bg bg-info">Mobile</label>-->
+            <input type="tel" class="form-control mb-1" id="smphone" placeholder="e.g.777-656-2345" value="{{d['SmPhone']}}" name="smphone" required>
+         </div>
+       <div class="form-group col-lg-4 col-sm-12">
+            <!--<label for="SMEmail" class="text-light bg bg-info">Email</label>-->
+            <input type="email" class="form-control mb-1" id="smemail" placeholder="e.g.elsa@gmail.com" value="{{d['SmEmail']}}" name="smemail" required>
+         </div>
+      </fieldset>
+      <div class="form-group col-lg-12 text-center m-4">
+         <button type="Submit" class="btn btn-primary">Update Info</button>
+      </div>
+      </div>
+   </form>
+   {% endfor %}
+{% endblock %}
